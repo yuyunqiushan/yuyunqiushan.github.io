@@ -782,5 +782,18 @@ window.addEventListener('scroll', updateProgress, {passive:true});
 updateProgress();
 </script>
 
+<!-- 手动切换到桌面版 -->
+<style>
+  .m-device-switch{position:fixed;right:14px;bottom:80px;z-index:9999}
+  .m-device-switch a{font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    text-decoration:none;color:var(--ink);background:rgba(245,242,237,.92);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1px solid rgba(26,26,28,.15);border-radius:999px;
+    padding:10px 14px;display:inline-flex;align-items:center;gap:6px;
+    box-shadow:0 2px 12px rgba(0,0,0,.08)}
+</style>
+<div class="m-device-switch">
+  <a href="index.html" onclick="localStorage.setItem('hanfu-device-pref','desktop')">🖥️ 桌面版</a>
+</div>
 </body>
 </html>

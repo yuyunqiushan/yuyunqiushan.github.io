@@ -447,6 +447,22 @@
 </head>
 <body>
 <script>
+  /* ============ 设备自动检测 + 手动切换 ============ */
+  (function(){
+    const KEY = 'hanfu-device-pref';
+    const isMobileUA = /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+    const isTouch = 'ontouchstart' in window && matchMedia('(pointer:coarse)').matches;
+    const isNarrow = window.innerWidth < 900;
+    const forced = localStorage.getItem(KEY);
+    // 仅当未手动选择桌面 + 设备是移动 + 屏宽窄，才自动跳
+    if (forced !== 'desktop' && (isMobileUA || (isTouch && isNarrow))) {
+      // 用 replace 不留在历史里
+      location.replace('mobile.html' + location.hash);
+      return;
+    }
+  })();
+</script>
+<script>
   (function(){
     const KEY = 'guizang-ppt-low-power';
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1464,5 +1480,22 @@ if(motion){
   playSlide(0);
 }
 </script>
+
+<!-- 手动切换到移动端 -->
+<style>
+  .device-switch{position:fixed;right:max(1.2vw,16px);bottom:max(2vh,20px);z-index:9999;
+    display:flex;gap:8px}
+  .device-switch a{font-family:var(--mono);font-size:11px;letter-spacing:.12em;
+    text-decoration:none;color:var(--ink);background:rgba(var(--paper-rgb),.88);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border:1px solid rgba(var(--ink-rgb),.15);border-radius:999px;
+    padding:8px 14px;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+  .device-switch a:hover{background:var(--paper);border-color:rgba(var(--ink-rgb),.3);transform:translateY(-1px)}
+  .dark .device-switch a{color:var(--paper);background:rgba(var(--ink-rgb),.6);border-color:rgba(var(--paper-rgb),.18)}
+  .dark .device-switch a:hover{background:rgba(var(--ink-rgb),.8);border-color:rgba(var(--paper-rgb),.3)}
+</style>
+<div class="device-switch">
+  <a href="mobile.html" onclick="localStorage.setItem('hanfu-device-pref','mobile')">📱 移动端</a>
+</div>
 </body>
 </html>
