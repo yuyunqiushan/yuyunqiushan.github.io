@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>yuyunqiushan · 作品集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1c;--paper:#f5f2ed;--paper-tint:#ebe7df;
+    --accent:#8b7355;--border:rgba(26,26,28,.1);
+    --serif-zh:"Noto Serif SC",serif;
+    --sans-zh:"Noto Sans SC",sans-serif;
+    --mono:"IBM Plex Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:16px;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--ink);color:var(--paper);
+    font-family:var(--sans-zh);line-height:1.75;
+    min-height:100vh;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+  .hero{
+    padding:16vh 6vw 10vh;text-align:center;
+  }
+  .hero .kicker{
+    font-family:var(--mono);font-size:clamp(10px,1.2vw,12px);
+    letter-spacing:.4em;text-transform:uppercase;opacity:.4;
+    margin-bottom:3vh;
+  }
+  .hero h1{
+    font-family:var(--serif-zh);font-size:clamp(28px,6vw,48px);
+    font-weight:700;line-height:1.2;margin-bottom:2vh;
+  }
+  .hero .subtitle{
+    font-size:clamp(14px,3vw,17px);opacity:.5;line-height:1.7;
+    max-width:500px;margin:0 auto;
+  }
+  .divider{
+    width:40px;height:1px;background:rgba(245,242,237,.15);
+    margin:4vh auto;
+  }
+  .works{
+    max-width:680px;margin:0 auto;padding:4vh 6vw 10vh;
+  }
+  .works h2{
+    font-family:var(--mono);font-size:11px;letter-spacing:.3em;
+    text-transform:uppercase;opacity:.35;margin-bottom:4vh;
+  }
+  .work-card{
+    display:block;text-decoration:none;color:inherit;
+    background:rgba(245,242,237,.04);
+    border:1px solid rgba(245,242,237,.08);
+    border-radius:14px;padding:5vw 5vw;margin-bottom:3vh;
+    transition:background .3s,border-color .3s,transform .2s;
+  }
+  .work-card:hover{
+    background:rgba(245,242,237,.08);
+    border-color:rgba(245,242,237,.16);
+    transform:translateY(-2px);
+  }
+  .work-card .tag{
+    font-family:var(--mono);font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;opacity:.4;margin-bottom:1.2vh;
+  }
+  .work-card .title{
+    font-family:var(--serif-zh);font-size:clamp(20px,5vw,26px);
+    font-weight:600;line-height:1.3;margin-bottom:1.5vh;
+  }
+  .work-card .desc{
+    font-size:clamp(13px,3.2vw,15px);opacity:.5;line-height:1.65;
+    margin-bottom:2vh;
+  }
+  .work-card .meta{
+    display:flex;gap:3vw;flex-wrap:wrap;
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+    opacity:.3;
+  }
+  .foot{
+    text-align:center;padding:6vh 6vw 8vh;
+    font-family:var(--mono);font-size:11px;
+    letter-spacing:.15em;opacity:.2;
+  }
+  @media (max-width:480px){
+    .work-card{padding:5vh 5vw}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kicker">Portfolio</div>
+  <h1>作品集</h1>
+  <p class="subtitle">文化观察 · 深度分析 · 电子杂志风演示</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="works">
+  <h2>作品</h2>
+
+  <a class="work-card" href="hanfu/">
+    <div class="tag">文化观察 · 2026</div>
+    <div class="title">汉服复兴运动是否逆现代化？</div>
+    <div class="desc">从现代化理论到后工业时代的重新思考。解构"现代化=西方化"的隐性叙事，探索汉服复兴的另一种可能。</div>
+    <div class="meta">
+      <span>19 页电子杂志风</span>
+      <span>桌面 + 移动端</span>
+      <span>知乎可复用</span>
+    </div>
+  </a>
+
+  <!-- 未来新作品在这里添加 -->
+
+</div>
+
+<div class="foot">
+  yuyunqiushan · GitHub Pages
+</div>
+
+</body>
+</html>

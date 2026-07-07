@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>汉服复兴运动是否逆现代化？· 移动端</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1c;
+    --paper:#f5f2ed;
+    --paper-tint:#ebe7df;
+    --accent:#8b7355;
+    --accent-light:#c4a882;
+    --accent-bg:rgba(139,115,85,.08);
+    --border:rgba(26,26,28,.12);
+    --serif-zh:"Noto Serif SC",serif;
+    --sans-zh:"Noto Sans SC",sans-serif;
+    --mono:"IBM Plex Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:16px;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:var(--sans-zh);font-size:16px;line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+
+  /* ===== 顶部封面 ===== */
+  .hero{
+    background:var(--ink);color:var(--paper);
+    padding:20vh 6vw 10vh;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;bottom:0;left:0;right:0;height:40px;
+    background:linear-gradient(transparent,var(--paper));
+  }
+  .hero .kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.3em;
+    text-transform:uppercase;opacity:.5;margin-bottom:3vh;
+  }
+  .hero h1{
+    font-family:var(--serif-zh);font-size:clamp(28px,7.5vw,42px);
+    font-weight:700;line-height:1.25;margin-bottom:3vh;
+  }
+  .hero .subtitle{
+    font-size:clamp(14px,3.8vw,17px);opacity:.6;line-height:1.6;
+  }
+
+  /* ===== 目录 ===== */
+  .toc{
+    padding:10vh 6vw 6vh;
+  }
+  .toc h2{
+    font-family:var(--serif-zh);font-size:22px;font-weight:600;
+    margin-bottom:4vh;
+    padding-bottom:1.5vh;border-bottom:1px solid var(--border);
+  }
+  .toc-item{
+    display:flex;gap:3vw;padding:2.2vh 0;
+    border-bottom:1px solid var(--border);
+  }
+  .toc-item:last-child{border-bottom:none}
+  .toc-num{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;
+    opacity:.4;padding-top:.4em;flex-shrink:0;width:28px;
+  }
+  .toc-text{flex:1}
+  .toc-title{font-weight:500;font-size:16px;margin-bottom:.4em}
+  .toc-desc{font-size:13px;opacity:.55;line-height:1.5}
+
+  /* ===== 章节封 ===== */
+  .chapter{
+    background:var(--ink);color:var(--paper);
+    padding:12vh 6vw 8vh;
+    text-align:center;
+    position:relative;
+  }
+  .chapter::after{
+    content:"";position:absolute;bottom:0;left:0;right:0;height:30px;
+    background:linear-gradient(transparent,var(--paper));
+  }
+  .chapter-num{
+    font-family:var(--mono);font-size:clamp(48px,16vw,80px);
+    font-weight:300;opacity:.1;line-height:1;
+    margin-bottom:2vh;letter-spacing:-.02em;
+  }
+  .chapter-kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.3em;
+    text-transform:uppercase;opacity:.4;margin-bottom:2vh;
+  }
+  .chapter h2{
+    font-family:var(--serif-zh);font-size:clamp(24px,6.5vw,36px);
+    font-weight:700;line-height:1.3;
+  }
+
+  /* ===== 正文段落 ===== */
+  .content{
+    padding:6vh 6vw;
+  }
+
+  /* 段落标题 */
+  .section-kicker{
+    font-family:var(--mono);font-size:11px;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:1.6vh;
+  }
+  .content h3{
+    font-family:var(--serif-zh);font-size:clamp(22px,5.5vw,28px);
+    font-weight:600;line-height:1.3;margin-bottom:3vh;
+  }
+  .content h4{
+    font-family:var(--serif-zh);font-size:clamp(18px,4.8vw,22px);
+    font-weight:600;line-height:1.35;margin-bottom:2vh;margin-top:5vh;
+  }
+  .content p{
+    margin-bottom:2.4vh;font-size:16px;line-height:1.85;
+  }
+  .content p.lead{
+    font-size:17px;font-weight:400;opacity:.7;
+    margin-bottom:4vh;line-height:1.7;
+  }
+
+  /* ===== 卡片 ===== */
+  .card{
+    background:var(--paper-tint);
+    border-radius:12px;
+    padding:5vw 5vw;
+    margin-bottom:3vh;
+  }
+  .card-title{
+    font-family:var(--serif-zh);font-size:18px;font-weight:600;
+    margin-bottom:1.5vh;
+  }
+  .card-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.45;margin-bottom:.6vh;
+  }
+  .card p{
+    font-size:15px;line-height:1.7;margin-bottom:1.5vh;
+  }
+  .card p:last-child{margin-bottom:0}
+
+  /* ===== 对比表（竖屏堆叠） ===== */
+  .vs-block{margin:4vh 0}
+  .vs-side{
+    padding:5vw;border-radius:12px;margin-bottom:3vh;
+  }
+  .vs-side.diminished{
+    background:var(--paper-tint);opacity:.55;
+  }
+  .vs-side.elevated{
+    background:var(--paper-tint);border-left:3px solid var(--accent);
+  }
+  .vs-side .vs-label{
+    font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;opacity:.6;margin-bottom:1vh;
+  }
+  .vs-side h4{
+    font-family:var(--serif-zh);font-size:18px;font-weight:600;
+    margin-bottom:2.5vh;margin-top:0;
+  }
+  .vs-row{margin-bottom:2vh}
+  .vs-row .dim{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+    text-transform:uppercase;opacity:.4;margin-bottom:.3vh;
+  }
+  .vs-row .val{font-size:15px;line-height:1.6}
+
+  /* ===== Pipeline 步骤 ===== */
+  .step{
+    padding:5vw 5vw 5vw 5vw;
+    border-top:1px solid var(--border);
+    position:relative;
+  }
+  .step:last-of-type{border-bottom:1px solid var(--border)}
+  .step-num{
+    font-family:var(--mono);font-size:11px;letter-spacing:.2em;
+    opacity:.4;margin-bottom:1vh;
+  }
+  .step-title{
+    font-family:var(--serif-zh);font-size:18px;font-weight:600;
+    margin-bottom:1vh;
+  }
+  .step-tags{
+    display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.5vh;
+  }
+  .step-tag{
+    font-size:12px;padding:3px 10px;border:1px solid var(--border);
+    border-radius:4px;opacity:.6;
+  }
+  .step-detail{font-size:14px;line-height:1.6;opacity:.75}
+
+  /* ===== 列表 ===== */
+  .bullet-list{
+    padding-left:0;list-style:none;margin:2vh 0;
+  }
+  .bullet-list li{
+    padding:1.5vh 0;border-top:1px solid var(--border);
+    font-size:15px;line-height:1.7;
+  }
+  .bullet-list li:last-child{border-bottom:1px solid var(--border)}
+
+  /* ===== 金句 / Callout ===== */
+  .quote-block{
+    padding:5vh 5vw;
+    background:var(--accent-bg);
+    border-left:3px solid var(--accent);
+    border-radius:0 12px 12px 0;
+    margin:5vh 0;
+  }
+  .quote-block p{
+    font-family:var(--serif-zh);
+    font-size:clamp(17px,4.5vw,21px);
+    line-height:1.7;margin-bottom:1.5vh;
+  }
+  .quote-block .cite{
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;
+    opacity:.5;
+  }
+
+  /* ===== 同心圆图（p12） ===== */
+  .rings{
+    display:flex;flex-direction:column;align-items:center;
+    gap:0;margin:4vh 0;
+  }
+  .ring{
+    text-align:center;padding:3vh 4vw;
+    border-radius:12px;width:100%;
+  }
+  .ring-core{background:var(--ink);color:var(--paper)}
+  .ring-semi{background:rgba(26,26,28,.08);margin-top:2vh}
+  .ring-edge{background:rgba(26,26,28,.04);margin-top:2vh}
+  .ring-title{
+    font-family:var(--serif-zh);font-size:17px;font-weight:600;
+    margin-bottom:.5vh;
+  }
+  .ring-desc{font-size:13px;opacity:.6}
+  .ring-arrows{
+    text-align:center;padding:2vh 0;font-size:13px;
+    line-height:1.8;opacity:.6;
+  }
+
+  /* ===== 结语 ===== */
+  .ending{
+    background:var(--ink);color:var(--paper);
+    padding:12vh 6vw;
+    text-align:center;
+  }
+  .ending h3{
+    font-family:var(--serif-zh);font-size:clamp(22px,6vw,32px);
+    font-weight:700;margin-bottom:5vh;
+  }
+  .ending p{
+    font-size:clamp(15px,4vw,18px);line-height:1.85;
+    opacity:.8;margin-bottom:3vh;text-align:left;
+  }
+  .ending .final{
+    font-family:var(--serif-zh);font-size:clamp(24px,7vw,36px);
+    font-weight:700;margin-top:6vh;opacity:1;
+    text-align:center;
+  }
+
+  /* ===== 分隔线 ===== */
+  .divider{
+    width:40px;height:1px;background:var(--border);
+    margin:5vh auto;
+  }
+
+  /* ===== 页脚 ===== */
+  .page-foot{
+    text-align:center;padding:4vh 6vw 6vh;
+    font-family:var(--mono);font-size:11px;
+    letter-spacing:.15em;opacity:.3;
+  }
+
+  /* ===== 阅读进度条 ===== */
+  .progress{
+    position:fixed;top:0;left:0;right:0;height:2px;
+    z-index:100;background:transparent;
+  }
+  .progress-bar{
+    height:100%;width:0%;background:var(--accent);
+    transition:width .1s linear;
+  }
+
+  /* ===== 返回顶部按钮 ===== */
+  .back-top{
+    position:fixed;right:5vw;bottom:calc(env(safe-area-inset-bottom) + 20px);
+    z-index:99;width:44px;height:44px;border-radius:50%;
+    background:var(--ink);color:var(--paper);
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;border:none;cursor:pointer;
+    opacity:0;transform:translateY(10px);
+    transition:opacity .3s,transform .3s;
+    box-shadow:0 2px 12px rgba(0,0,0,.15);
+  }
+  .back-top.visible{opacity:.7;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- 阅读进度条 -->
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+<!-- 返回顶部 -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ============ p1 封面 ============ -->
+<div class="hero">
+  <div class="kicker">文化观察 · Cultural Study</div>
+  <h1>汉服复兴运动<br>是否逆现代化？</h1>
+  <p class="subtitle">从现代化理论到后工业时代的重新思考</p>
+</div>
+
+<!-- ============ p2 目录 ============ -->
+<div class="toc">
+  <h2>目录</h2>
+  <div class="toc-item">
+    <div class="toc-num">01</div>
+    <div class="toc-text">
+      <div class="toc-title">如何定义现代化</div>
+      <div class="toc-desc">工业化视角的三标准</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-num">02</div>
+    <div class="toc-text">
+      <div class="toc-title">为什么现代化 = 西方化？</div>
+      <div class="toc-desc">现代化理论、三宗原罪、路径依赖</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-num">03</div>
+    <div class="toc-text">
+      <div class="toc-title">对该等式的批判</div>
+      <div class="toc-desc">世界体系理论、依附理论、后殖民主义</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-num">04</div>
+    <div class="toc-text">
+      <div class="toc-title">信息时代汉服如何破局</div>
+      <div class="toc-desc">生产力变革、三重破局、双重突围</div>
+    </div>
+  </div>
+  <div class="toc-item">
+    <div class="toc-num">05</div>
+    <div class="toc-text">
+      <div class="toc-title">结语</div>
+      <div class="toc-desc">重新定义现代化</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ p3 章节封 ============ -->
+<div class="chapter">
+  <div class="chapter-num">01</div>
+  <div class="chapter-kicker">Act I · 第一幕</div>
+  <h2>如何定义现代化？</h2>
+</div>
+
+<!-- ============ p4 三标准 Pipeline ============ -->
+<div class="content">
+  <div class="section-kicker">Act I · Pipeline</div>
+  <h3>工业化视角下的现代化三标准</h3>
+
+  <div class="step">
+    <div class="step-num">STEP 01</div>
+    <div class="step-title">生产端</div>
+    <div class="step-tags">
+      <span class="step-tag">大规模</span>
+      <span class="step-tag">标准化</span>
+    </div>
+    <div class="step-detail">核心要求：适应流水线生产<br>对应服装特征：工艺简单、可批量裁剪</div>
+  </div>
+  <div class="step">
+    <div class="step-num">STEP 02</div>
+    <div class="step-title">功能端</div>
+    <div class="step-tags">
+      <span class="step-tag">工厂/城市活动</span>
+    </div>
+    <div class="step-detail">核心要求：实用 · 耐穿 · 便宜<br>对应服装特征：简化剪裁、耐磨面料</div>
+  </div>
+  <div class="step">
+    <div class="step-num">STEP 03</div>
+    <div class="step-title">结果</div>
+    <div class="step-tags">
+      <span class="step-tag">时代制服</span>
+    </div>
+    <div class="step-detail">T恤 · 牛仔裤 · 西装</div>
+  </div>
+
+  <div class="quote-block">
+    <p>汉服结构复杂、不适合量产，在这套标准下看起来确实像「开倒车」——这也是大多数人的直觉。</p>
+  </div>
+</div>
+
+<!-- ============ p5 章节封 ============ -->
+<div class="chapter">
+  <div class="chapter-num">02</div>
+  <div class="chapter-kicker">Act II · 第二幕</div>
+  <h2>为什么现代化 = 西方化？</h2>
+</div>
+
+<!-- ============ p6 单行道 ============ -->
+<div class="content">
+  <div class="section-kicker">Act II · One-Way Road</div>
+  <h3>现代化理论：把西方定义为历史终点</h3>
+
+  <div class="vs-block">
+    <div class="vs-side diminished">
+      <div class="vs-label">起点 · Origin</div>
+      <h4>传统社会</h4>
+      <div class="step-tags">
+        <span class="step-tag">静止</span>
+        <span class="step-tag">非理性</span>
+        <span class="step-tag">集体主义</span>
+      </div>
+    </div>
+    <div style="text-align:center;padding:1vh 0;font-size:24px;opacity:.3">↓</div>
+    <div class="vs-side elevated">
+      <div class="vs-label">终点 · Destination</div>
+      <h4>现代社会</h4>
+      <div class="step-tags">
+        <span class="step-tag">动态</span>
+        <span class="step-tag">理性</span>
+        <span class="step-tag">个人主义</span>
+      </div>
+    </div>
+  </div>
+
+  <p class="lead">1950年代最发达的西方，被直接等同于「现代」的最终形态。这不仅是技术——更是全盘文化改造：从价值观到生活方式都要向西方看齐，传统被贬为落后。</p>
+
+  <div class="card">
+    <div class="card-title">单行道模型</div>
+    <div class="card-label">社会进化论</div>
+    <p>所有社会被安排走同一条单行道：技术 → 理性 → 个人主义 → 市场经济</p>
+  </div>
+  <div class="card">
+    <div class="card-title">历史终点论</div>
+    <div class="card-label">1950s 美欧</div>
+    <p>1950年代的美欧被规定为所有社会的终点，非西方国家只能追赶。</p>
+  </div>
+</div>
+
+<!-- ============ p7 传统 vs 现代 ============ -->
+<div class="content">
+  <div class="section-kicker">Act II · Before / After</div>
+  <h3>传统 vs 现代：被建构出来的二元对立</h3>
+
+  <div class="vs-block">
+    <div class="vs-side diminished">
+      <div class="vs-label">被贬低的一方 · The Diminished</div>
+      <h4>传统社会（非西方）</h4>
+      <div class="vs-row"><div class="dim">身份来源</div><div class="val">先赋——出身、血缘、性别决定</div></div>
+      <div class="vs-row"><div class="dim">人际规则</div><div class="val">特殊主义——亲疏有别，看关系办事</div></div>
+      <div class="vs-row"><div class="dim">价值取向</div><div class="val">集体主义优先</div></div>
+      <div class="vs-row"><div class="dim">决策模式</div><div class="val">感性——凭感情、习俗做决定</div></div>
+      <div class="vs-row"><div class="dim">权责边界</div><div class="val">弥散——公私不分，关系模糊</div></div>
+    </div>
+    <div class="vs-side elevated">
+      <div class="vs-label">被推崇的一方 · The Elevated</div>
+      <h4>现代社会（西方）</h4>
+      <div class="vs-row"><div class="dim">身份来源</div><div class="val">后致——能力、努力、成就说了算</div></div>
+      <div class="vs-row"><div class="dim">人际规则</div><div class="val">普遍主义——一视同仁，按规则办事</div></div>
+      <div class="vs-row"><div class="dim">价值取向</div><div class="val">个人主义优先</div></div>
+      <div class="vs-row"><div class="dim">决策模式</div><div class="val">理性——计算成本收益</div></div>
+      <div class="vs-row"><div class="dim">权责边界</div><div class="val">专门——权责分明，边界清晰</div></div>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>这套「二元对立」不是客观描述，而是为了证明西方先进的建构。</p>
+    <span class="cite">— 现代化理论的隐性前提</span>
+  </div>
+</div>
+
+<!-- ============ p8 三宗原罪 ============ -->
+<div class="content">
+  <div class="section-kicker">Act II · Three Sins</div>
+  <h3>汉服被贴上的三宗「原罪」</h3>
+
+  <div class="card">
+    <div class="card-label">经济</div>
+    <div class="card-title">「不划算」</div>
+    <p>手工作坊规模小、费工费时，不符合流水线低成本的工业逻辑。</p>
+  </div>
+  <div class="card">
+    <div class="card-label">社会</div>
+    <div class="card-title">「过时」</div>
+    <p>和身份等级、仪式绑定，抹不平人与人之间的身份差异。</p>
+  </div>
+  <div class="card">
+    <div class="card-label">文化</div>
+    <div class="card-title">「历史包袱」</div>
+    <p>几百年穿同样的衣服，在这一框架下不叫传承，叫停滞。</p>
+  </div>
+
+  <div class="quote-block">
+    <p>「汉服就该进博物馆」——这正是现代化理论给传统文化安排好的归宿：从生活中抽离，成为玻璃柜里的标本。</p>
+  </div>
+</div>
+
+<!-- ============ p9 路径依赖 ============ -->
+<div class="content">
+  <div class="section-kicker">Act II · Path Dependency</div>
+  <h3>路径依赖：历史选择的锁定效应</h3>
+
+  <p class="lead">一条路走顺了就很难换道——典型例子：QWERTY 键盘。即使不是最优解，也会因规模效应、学习成本、配套齐全被自我强化，把方向「锁死」。</p>
+
+  <p>西方率先完成工业革命，制定了现代世界的游戏规则：</p>
+
+  <ul class="bullet-list">
+    <li><strong>技术标准</strong>：铁路轨距、互联网协议</li>
+    <li><strong>商业规则</strong>：公司法、会计准则、国际贸易法</li>
+    <li><strong>通用语言</strong>：英语成为全球外交与商业通用语</li>
+  </ul>
+
+  <p>后发国家融入体系最省事的办法就是套用现成标准，客观上让「现代化」看起来就是「西方化」。</p>
+</div>
+
+<!-- ============ p10 章节封 ============ -->
+<div class="chapter">
+  <div class="chapter-num">03</div>
+  <div class="chapter-kicker">Act III · 第三幕</div>
+  <h2>西方化真的等于现代化吗？</h2>
+</div>
+
+<!-- ============ p11 四假设 ============ -->
+<div class="content">
+  <div class="section-kicker">Act III · Four Assumptions</div>
+  <h3>现代化理论的四个假设——均已被推翻</h3>
+
+  <div class="card">
+    <div class="card-title">① 各国独立</div>
+    <p>每个国家自主发展，互不影响。</p>
+    <p style="color:var(--accent);font-weight:500">✗ 错：全球早已是相互绑定的分工体系</p>
+  </div>
+  <div class="card">
+    <div class="card-title">② 线性发展</div>
+    <p>所有国家走同一条直路，只是出发早晚。</p>
+    <p style="color:var(--accent);font-weight:500">✗ 错：起点不同、在体系中的位置不同</p>
+  </div>
+  <div class="card">
+    <div class="card-title">③ 内因论</div>
+    <p>穷是因为自身文化制度有缺陷。</p>
+    <p style="color:var(--accent);font-weight:500">✗ 错：不平等的国际分工才是核心根源</p>
+  </div>
+  <div class="card">
+    <div class="card-title">④ 善意带路</div>
+    <p>西方是帮助后发国家的引路人。</p>
+    <p style="color:var(--accent);font-weight:500">✗ 错：核心区通过规则维持自身剥削地位</p>
+  </div>
+</div>
+
+<!-- ============ p12 同心圆 ============ -->
+<div class="content">
+  <div class="section-kicker">Act III · World System</div>
+  <h3>世界体系理论：一个不平等的同心圆</h3>
+
+  <div class="rings">
+    <div class="ring ring-core">
+      <div class="ring-title">核心区</div>
+      <div class="ring-desc">西方先发国</div>
+    </div>
+    <div class="ring ring-semi">
+      <div class="ring-title">半边缘区</div>
+      <div class="ring-desc">新兴经济体</div>
+    </div>
+    <div class="ring ring-edge">
+      <div class="ring-title">边缘区</div>
+      <div class="ring-desc">广大发展中国家</div>
+    </div>
+  </div>
+
+  <div class="ring-arrows">
+    ▲ 资源和利润：自下而上流出<br>
+    边缘 → 半边缘 → 核心<br><br>
+    ▼ 规则、资本、文化：自上而下输出<br>
+    核心 → 半边缘 → 边缘
+  </div>
+
+  <p class="lead">边缘区的「现代化」本质上是依附性发展——审美、法律、金融都必须向核心区（西方）看齐，才能接入这一体系。</p>
+</div>
+
+<!-- ============ p13 双重批判 ============ -->
+<div class="content">
+  <div class="section-kicker">Act III · Dual Critique</div>
+  <h3>对「现代化=西方化」的双重批判</h3>
+
+  <div class="card">
+    <div class="card-label">结构性批判</div>
+    <div class="card-title">经济批判：依附 / 世界体系理论</div>
+    <p><strong>核心观点</strong>：全球是不平等的分工体系，边缘国被锁定在低附加值位置。</p>
+    <p><strong>运作机制</strong>：核心掌握规则与资本，边缘提供原材料与廉价劳动力。</p>
+    <p><strong>代表理论</strong>：沃勒斯坦世界体系、弗兰克依附理论。</p>
+    <p><strong>心理后果</strong>：法律、金融、审美被迫向核心靠拢，否则无法接入体系。</p>
+  </div>
+  <div class="card">
+    <div class="card-label">话语性批判</div>
+    <div class="card-title">文化批判：后殖民主义</div>
+    <p><strong>核心观点</strong>：殖民不只是军事征服，更是文化征服与话语建构。</p>
+    <p><strong>运作机制</strong>：西方把自己塑造成「先进/普世」，把他者塑造成「落后」。</p>
+    <p><strong>代表理论</strong>：萨义德「东方主义」——东方被建构为低人一等的「他者」。</p>
+    <p><strong>心理后果</strong>：被殖民者内化这一判断，主动模仿西方审美以证明自己。</p>
+  </div>
+</div>
+
+<!-- ============ p14 章节封 ============ -->
+<div class="chapter">
+  <div class="chapter-num">04</div>
+  <div class="chapter-kicker">Act IV · 第四幕</div>
+  <h2>信息时代：汉服如何破局？</h2>
+</div>
+
+<!-- ============ p15 工业 vs 后工业 ============ -->
+<div class="content">
+  <div class="section-kicker">Act IV · Paradigm Shift</div>
+  <h3>后工业时代的生产力变革</h3>
+
+  <div class="vs-block">
+    <div class="vs-side diminished">
+      <div class="vs-label">汉服被淘汰的时代背景</div>
+      <h4>工业时代</h4>
+      <div class="vs-row"><div class="dim">核心驱动</div><div class="val">大工业、规模化生产</div></div>
+      <div class="vs-row"><div class="dim">生产方式</div><div class="val">大批量、标准化、刚性流水线</div></div>
+      <div class="vs-row"><div class="dim">销售渠道</div><div class="val">层层经销商、大众媒体</div></div>
+      <div class="vs-row"><div class="dim">劳动场景</div><div class="val">工厂体力劳动为主</div></div>
+      <div class="vs-row"><div class="dim">消费需求</div><div class="val">实用、耐穿、便宜</div></div>
+    </div>
+    <div class="vs-side elevated">
+      <div class="vs-label">汉服复兴的时代土壤</div>
+      <h4>后工业 / 信息时代</h4>
+      <div class="vs-row"><div class="dim">核心驱动</div><div class="val">自动化、信息化、服务业</div></div>
+      <div class="vs-row"><div class="dim">生产方式</div><div class="val">小批量、多款式、柔性生产</div></div>
+      <div class="vs-row"><div class="dim">销售渠道</div><div class="val">电商+社交媒体，小作坊可直达</div></div>
+      <div class="vs-row"><div class="dim">劳动场景</div><div class="val">办公室、居家，对服装束缚低</div></div>
+      <div class="vs-row"><div class="dim">消费需求</div><div class="val">个性表达、文化认同、审美体验</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ p16 三重破局 ============ -->
+<div class="content">
+  <div class="section-kicker">Act IV · Three Breakthroughs</div>
+  <h3>三重破局：经济、社会、文化</h3>
+  <p class="lead">当年判词 → 今天实践</p>
+
+  <div class="card">
+    <div class="card-label">经济</div>
+    <div class="card-title">「手工艺低效率，理应被淘汰」</div>
+    <p>▸ 形制标准化 + 现代面料 + 数码印花</p>
+    <p>▸ 分层市场催生完整产业链</p>
+    <p>▸ 从手工作坊走向规模化生产</p>
+  </div>
+  <div class="card">
+    <div class="card-label">社会</div>
+    <div class="card-title">「固化身份等级，阻碍平等」</div>
+    <p>▸ 去阶级化：龙袍官服仅限展演</p>
+    <p>▸ 礼服化：承载仪式感</p>
+    <p>▸ 日常化：通勤逛街都能穿</p>
+  </div>
+  <div class="card">
+    <div class="card-label">文化</div>
+    <div class="card-title">「传统是奔向未来必须甩掉的包袱」</div>
+    <p>▸ 剃发易服的记忆断裂避开屈辱联想</p>
+    <p>▸ 当代设计融入动画影视</p>
+    <p>▸ 从博物馆标本回到日常穿着</p>
+  </div>
+</div>
+
+<!-- ============ p17 双重突围 ============ -->
+<div class="content">
+  <div class="section-kicker">Act IV · Dual Breakthrough</div>
+  <h3>往大了看：经济与文化的双重突围</h3>
+
+  <div class="card">
+    <div class="card-label">经济突围</div>
+    <div class="card-title">经济：价值链攀升</div>
+    <p><strong>起点</strong>：全球时尚是中心-边缘结构——巴黎米兰定调，中国代工赚微利。</p>
+    <p><strong>路径</strong>：从代加工走向自建品牌——走完设计—面料—营销的高附加值链。</p>
+    <p><strong>目标</strong>：从「中国制造」升级为「中国创造」，向核心区攀升。</p>
+  </div>
+  <div class="card">
+    <div class="card-label">文化突围</div>
+    <div class="card-title">文化：审美主权收复</div>
+    <p><strong>起点</strong>：「穿西装=专业=现代」本身就是文化霸权的产物。</p>
+    <p><strong>路径</strong>：把身体从西方审美框架中解放出来，回归自身文明的线条。</p>
+    <p><strong>目标</strong>：穿着汉服坐高铁、用电脑——这是「多元现代性」最直观的宣告。</p>
+  </div>
+</div>
+
+<!-- ============ p18 章节封 ============ -->
+<div class="chapter">
+  <div class="chapter-num">05</div>
+  <div class="chapter-kicker">Act V · 第五幕</div>
+  <h2>结语</h2>
+</div>
+
+<!-- ============ p19 结语 ============ -->
+<div class="ending">
+  <h3>汉服是逆现代化吗？</h3>
+  <p>汉服不是逆现代化。</p>
+  <p>它借由后工业时代的生产力条件和文化多元思潮，在探索现代化的另一种可能。</p>
+  <p>它承认科技、经济、法治的普遍趋势，但在审美、身份认同、生活方式、精神归属上，选择从自身文化中生长出来。</p>
+  <p>这条路能走多远尚未可知，但它正在走，而且已经走了二十多年。</p>
+  <div class="final">这就够了。</div>
+</div>
+
+<!-- 页脚 -->
+<div class="page-foot">
+  汉服复兴运动是否逆现代化？· 文化观察
+</div>
+
+<script>
+// 阅读进度条
+const progressBar = document.getElementById('progressBar');
+const backTop = document.getElementById('backTop');
+function updateProgress(){
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight * 100) : 0;
+  progressBar.style.width = pct + '%';
+  backTop.classList.toggle('visible', scrollTop > 400);
+}
+window.addEventListener('scroll', updateProgress, {passive:true});
+updateProgress();
+</script>
+
+</body>
+</html>
